@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="local.props" />
+  <PropertyGroup>
+    <PlatformTarget>x64</PlatformTarget>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(SE)/VRage*.dll" Private="False" Exclude="$(SE)/VRage.Native.dll" />
+    <Reference Include="$(SE)/System*.dll" Private="False" />
+    <Reference Include="$(SE)/Microsoft*.dll" Private="False" />
+    <Reference Include="$(SE)/Sandbox*.dll" Private="False" />
+    <Reference Include="$(SE)/0Harmony.dll" Private="False" />
+  </ItemGroup>
+</Project>

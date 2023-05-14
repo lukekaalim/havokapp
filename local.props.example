@@ -1,0 +1,6 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SE>/home/lukekaalim/.local/share/Steam/steamapps/common/SpaceEngineers/Bin64</SE>
+    <SE_App_Data>/home/lukekaalim/.steam/steam/steamapps/compatdata/244850/pfx/drive_c/users/steamuser/Application Data/SpaceEngineers</SE_App_Data>
+  </PropertyGroup>
+</Project>
