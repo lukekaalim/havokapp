@@ -13,7 +13,12 @@ var nativeWindowSettings = new NativeWindowSettings()
     Flags = ContextFlags.ForwardCompatible,
 };
 
-using (var window = new Game(GameWindowSettings.Default, nativeWindowSettings))
+var gameWindowSettings = new GameWindowSettings
+{
+  //RenderFrequency = 10
+};
+
+using (var window = new Game(gameWindowSettings, nativeWindowSettings))
 {
     window.Run();
 }
