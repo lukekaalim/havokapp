@@ -2,7 +2,7 @@
 using HavokTestApp;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
-﻿using OpenTK.Mathematics;
+using OpenTK.Mathematics;
 
 
 var nativeWindowSettings = new NativeWindowSettings()
