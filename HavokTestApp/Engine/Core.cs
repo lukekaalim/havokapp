@@ -9,22 +9,38 @@ namespace HavokTestApp.Engine;
 
 
 public record Graphic(VertexArray Geometry, ShaderProgram Material) {
+  public Dictionary<int, Vector4> VectorUniforms = new Dictionary<int, Vector4>();
+  public Dictionary<int, Matrix4> MatrixUniforms = new Dictionary<int, Matrix4>();
+
   public void Render() {
       GL.UseProgram(Material);
       GL.BindVertexArray(Geometry);
+      foreach (var (layout, vector) in VectorUniforms)
+        GL.Uniform4(layout, vector.X, vector.Y, vector.Z, vector.W);
+      foreach (var (layout, matrix) in MatrixUniforms) {
+        var myMatrix = matrix;
+        GL.UniformMatrix4(layout, true, ref myMatrix);
+      }
+      VectorUniforms.Clear();
+      MatrixUniforms.Clear();
+
       GL.DrawArrays(PrimitiveType.Triangles, 0, Geometry.Length);
   }
 
   public void SetUniform(string name, Vector4 value) {
     var uniformLayout = Material.LayoutLookup.Uniforms[name];
-    GL.UseProgram(Material);
-    GL.Uniform4(uniformLayout, value.X, value.Y, value.Z, value.W);
+    if (VectorUniforms.ContainsKey(uniformLayout))
+      VectorUniforms[uniformLayout] = value;
+    else
+      VectorUniforms.Add(uniformLayout, value);
   }
 
-  public void SetMatrixUniform(string name, ref Matrix4 value) {
+  public void SetMatrixUniform(string name, Matrix4 value) {
     var uniformLayout = Material.LayoutLookup.Uniforms[name];
-    GL.UseProgram(Material);
-    GL.UniformMatrix4(uniformLayout, true, ref value);
+    if (MatrixUniforms.ContainsKey(uniformLayout))
+      MatrixUniforms[uniformLayout] = value;
+    else
+      MatrixUniforms.Add(uniformLayout, value);
   }
 }
 

@@ -102,7 +102,8 @@ public class Game : GameWindow
       var geometry = VertexArray.CreateFromBuffer(buffer, cube2.Length * 3, ShaderProgram.Layout.Calculate(shader));
 
       var graphic = new Graphic(geometry, shader);
-      scene = new Scene(new List<Graphic>() { graphic });
+      var graphic2 = new Graphic(geometry, shader);
+      scene = new Scene(new List<Graphic>() { graphic, graphic2 });
 
       GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
       GL.Enable(EnableCap.DepthTest);
@@ -136,9 +137,20 @@ public class Game : GameWindow
       //Console.WriteLine((float)((boundInterval * 100d) % 360d));
 
       var graphic = scene.Graphics[0];
+      var graphic2 = scene.Graphics[1];
 
       //graphic.SetUniform("ourColor", new Vector4(1, 1, 1, 0));
-      graphic.SetMatrixUniform("transform", ref meshMatrix);
+      var meshMatrix2 = 
+        Matrix4.CreateRotationY(MathHelper.DegreesToRadians((float)((boundInterval * 80) % 360d))) *
+        Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)((boundInterval * 10) % 360d))) *
+        Matrix4.CreateRotationZ(MathHelper.DegreesToRadians((float)((boundInterval * 5) % 360d))) *
+        Matrix4.CreateTranslation(new Vector3(
+          0,
+          0.5f - (float)ocilatingInterval,
+          0
+        ) / 2);
+      graphic.SetMatrixUniform("transform", meshMatrix);
+      graphic2.SetMatrixUniform("transform", meshMatrix2);
 
       SwapBuffers();
   }
