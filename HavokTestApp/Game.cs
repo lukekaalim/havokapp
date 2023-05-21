@@ -10,6 +10,10 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 
 using LKEngine;
+using Havok;
+using VRage;
+using VRage.Platform.Windows;
+
 
 namespace HavokTestApp;
 
@@ -39,6 +43,10 @@ public class Game : GameWindow
       var graphic = new Graphic(geometry, shader);
       var graphic2 = new Graphic(geometry2, shader);
       scene = new Scene(new List<Graphic>() { graphic, graphic2 });
+      //MyVRageWindows.Init("HavokApp", new VRage.Utils.MyLog(), "cooldata", true, true);
+      //var myLock = MyVRage.Platform.System.CreateSharedCriticalSection(true);
+
+      //HkBaseSystem.Init(5242880, log => Console.WriteLine(log), true, myLock);
 
       GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
       GL.Enable(EnableCap.DepthTest);
