@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavokWrapper", "HavokWrappe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavokTestApp", "HavokTestApp\HavokTestApp.csproj", "{5BA781F2-6CBE-478B-AA51-06AA6DA3164C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LKEngine", "LKEngine\LKEngine.csproj", "{F913F055-6BD3-451A-8E2F-0328E539DBE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5BA781F2-6CBE-478B-AA51-06AA6DA3164C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BA781F2-6CBE-478B-AA51-06AA6DA3164C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA781F2-6CBE-478B-AA51-06AA6DA3164C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F913F055-6BD3-451A-8E2F-0328E539DBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F913F055-6BD3-451A-8E2F-0328E539DBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F913F055-6BD3-451A-8E2F-0328E539DBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F913F055-6BD3-451A-8E2F-0328E539DBE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

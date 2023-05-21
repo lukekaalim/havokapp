@@ -5,6 +5,7 @@
     <Reference Include="$(SE)/System*.dll" />
     <Reference Include="$(SE)/Microsoft*.dll" />
     <Reference Include="$(SE)/Sandbox*.dll" /-->
+    <ProjectReference Include="..\LKEngine\LKEngine.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.7.7" />
