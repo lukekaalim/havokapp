@@ -1,17 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="local.props" />
   <ItemGroup>
-    <!--ProjectReference Include="..\HavokWrapper\HavokWrapper.csproj" /-->
     <Reference Include="$(SE)/VRage*.dll" Exclude="$(SE)/VRage.Native.dll" />
     <Reference Include="$(SE)/System*.dll" />
     <Reference Include="$(SE)/Microsoft*.dll" />
     <Reference Include="$(SE)/Sandbox*.dll" />
-
     <ProjectReference Include="..\LKEngine\LKEngine.csproj" />
     <ProjectReference Include="..\HavokWrapper\HavokWrapper.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.7.7" />
+    <NativeDLLs Include="$(SE)/Havok.dll" />
     <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="7.0.0" />
   </ItemGroup>
   <PropertyGroup>
@@ -19,4 +18,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
+  <Target Name="Copy Native" AfterTargets="Build">
+    <Message Text="### AfterBuild ###" Importance="high" />
+    <Copy SourceFiles="$(SE)/Havok.dll" DestinationFolder="$(OutputPath)" />
+  </Target>
 </Project>
